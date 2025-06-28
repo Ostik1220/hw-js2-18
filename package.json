@@ -4,7 +4,6 @@
   "description": "",
   "homepage": "https://ostik1220.github.io/hw-js-18/",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx parcel src/index.html",
     "build": "parcel build src/index.html --no-cache --public-url /hw-js2-18",
     "deploy": "gh-pages -d dist",
