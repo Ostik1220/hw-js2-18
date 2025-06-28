@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="backdrop">
+      <div class="modal">
+        <h2 class="title">Змінити студента</h2>
+      <form id="update-student-form">
+        <label>Ім'я: <input type="text" name="nameCollect" id="name" required /></label>
+        <label>Вік: <input type="number" name="ageCollect" id="age" required /></label>
+        <label>Курс: <input type="text" name="courseCollect" id="course" required /></label>
+        <label
+          >Навички (через кому): <input type="text" name="skillsCollect" id="skills" required
+        /></label>
+        <label>Email: <input type="email" name="emailCollect" id="email" required /></label>
+        <label>Записаний: <input type="checkbox" name="isEnrolledCollect" id="isEnrolled" /></label>
+        <button type="submit" class="change">Змінити</button>
+      </form></div>
+    </div>
     <div class="container">
       <h1>Список студентів</h1>
       <button id="get-students-btn">Отримати студентів</button>
@@ -28,20 +43,21 @@
           <!-- Динамічно заповнено -->
         </tbody>
       </table>
-      <h2>Додати нового студента</h2>
+      <h2 class="title">Додати нового студента</h2>
       <form id="add-student-form">
-        <label>Ім'я: <input type="text" id="name" required /></label>
-        <label>Вік: <input type="number" id="age" required /></label>
-        <label>Курс: <input type="text" id="course" required /></label>
+        <label>Ім'я: <input type="text" name="nameCollect" id="name" required /></label>
+        <label>Вік: <input type="number" name="ageCollect" id="age" required /></label>
+        <label>Курс: <input type="text" name="courseCollect" id="course" required /></label>
         <label
-          >Навички (через кому): <input type="text" id="skills" required
+          >Навички (через кому): <input type="text" name="skillsCollect" id="skills" required
         /></label>
-        <label>Email: <input type="email" id="email" required /></label>
-        <label>Записаний: <input type="checkbox" id="isEnrolled" /></label>
+        <label>Email: <input type="email" name="emailCollect" id="email" required /></label>
+        <label>Записаний: <input type="checkbox" name="isEnrolledCollect" id="isEnrolled" /></label>
         <button type="submit">Додати студента</button>
       </form>
     </div>
+    
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>

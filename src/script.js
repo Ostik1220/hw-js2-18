@@ -1,54 +1,90 @@
-function getStudents() {
-  return fetch("http://localhost:3000/students")
-    .then((res) => res.json())
-    .then((data) => {
-      const tableBody = document.querySelector("tbody");
-      tableBody.innerHTML = renderStudents(data).join('');
-    })
-}
-
+import { getStudents } from "./operations/getStudentsObject";
+import { updateStudent } from "./operations/updateStudent";
+import { addStudent } from "./operations/addStudent";
+import { deleteStudent } from "./operations/deleteStudents";
 getStudents(); 
 
 
-function renderStudents(students) {
-  return students.map((object) => {
-    const skillsArr = object.skills;
-    const skillsStr = skillsArr.join(', '); 
-    return `
-      <tr>
-        <td>${object.id}</td>
-        <td>${object.name}</td>
-        <td>${object.age}</td>
-        <td>${object.course}</td>
-        <td>${skillsStr}</td>
-        <td>${object.email}</td>
-        <td>${object.isEnrolled}</td>
-        <td><button type="button" class="delete-btn">Видалити</button></td>
-        <td><button type="button" class="update-btn">Оновити</button></td>
-      </tr>
-    `;
-  });
+const form =  document.querySelector("#add-student-form")
+ 
+const collectInfo = (form) => {
+form.addEventListener("submit", (e) => {
+  e.preventDefault()
+      const name = e.target.elements.nameCollect.value;
+      const age = e.target.elements.ageCollect.value;
+      const course = e.target.elements.courseCollect.value;
+      const skills = e.target.elements.skillsCollect.value.split(", ");
+      const email = e.target.elements.emailCollect.value;
+      let isEnrolled;
+      if(e.target.elements.isEnrolledCollect.value === "on"){
+ isEnrolled = true;
+      } else {
+ isEnrolled = false;
+      }
+      
+  const student = {
+        name : name,
+        age : age,
+        course : course,
+        skills : skills,
+        email : email,
+        isEnrolled : isEnrolled
+  }
+  return addStudent(student)
+ })
 }
 
+ console.log(collectInfo(form))
 
 
 
-// Функція для додавання нового студента
-function addStudent(e) {
- // твій код
+// Функція для оновлення студента 
 
-}
-
-
-
-// Функція для оновлення студента
-function updateStudent(id) {
- // твій код
-
- }
-
+document.querySelector("tbody").addEventListener("click", (e) => {
+  if (e.target.textContent === "Оновити") {
+    const buttonSection = e.target.parentElement;
+    const item = buttonSection.parentElement
+    console.log(item.id);
+  document.querySelector(`.backdrop`).style.visibility = "visible"
+document.querySelector(`.backdrop`).style.display = "flex"
+document.querySelector("#update-student-form").addEventListener("submit", (e) => {
+  e.preventDefault()
+      const name = e.target.elements.nameCollect.value;
+      const age = e.target.elements.ageCollect.value;
+      const course = e.target.elements.courseCollect.value;
+      const skills = e.target.elements.skillsCollect.value.split(", ");
+      const email = e.target.elements.emailCollect.value;
+      let isEnrolled;
+      if(e.target.elements.isEnrolledCollect.value === "on"){
+ isEnrolled = true;
+      } else {
+ isEnrolled = false;
+      }
+      
+  const student = {
+        name : name,
+        age : age,
+        course : course,
+        skills : skills,
+        email : email,
+        isEnrolled : isEnrolled
+  }
+  document.querySelector(`.backdrop`).style.visibility = "hidden"
+document.querySelector(`.backdrop`).style.display = "none"
+  
+  return  updateStudent(item.id, student)
+ })
+  }
+})
 
 // Функція для видалення студента
-function deleteStudent(id) {
-    // твій код
-}
+
+document.querySelector("tbody").addEventListener("click", (e) => {
+  if (e.target.textContent === "Видалити") {
+    const buttonSection = e.target.parentElement;
+    const item = buttonSection.parentElement
+    console.log(item.id);
+    deleteStudent(item.id)
+  }
+})
+
