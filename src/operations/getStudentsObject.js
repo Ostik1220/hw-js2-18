@@ -1,10 +1,15 @@
-export function getStudents() {
-  return fetch("http://localhost:3000/students")
+export const getStudents = async() => {
+ try{ return await fetch("http://localhost:3000/students")
     .then((res) => res.json())
     .then((data) => {
       const tableBody = document.querySelector("tbody");
       tableBody.innerHTML = renderStudents(data).join('');
     })
+  } catch (error) {
+    console.log(error);
+  }
+    
+    
 }
 
 function renderStudents(students) {

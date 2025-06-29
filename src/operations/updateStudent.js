@@ -1,4 +1,4 @@
-export function updateStudent(id, student) {
+export const updateStudent = async (id, student) => {
   const options = {
     method: "PATCH",
 
@@ -8,11 +8,13 @@ export function updateStudent(id, student) {
       "Content-Type": "application/json; charset=UTF-8",
     },
   };
-    {
-    return fetch(
+    try {
+    return await fetch(
       `http://localhost:3000/students/${id}`,
       options
     ).then((response) => response.json());
+    } catch (error) {
+    console.log(error);
   }
 
  }

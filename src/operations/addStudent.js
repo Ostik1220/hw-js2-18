@@ -1,4 +1,4 @@
-export function addStudent(obj) {
+export const addStudent = async (obj) => {
   const options = {
     method: "POST",
     body: JSON.stringify(obj),
@@ -6,9 +6,13 @@ export function addStudent(obj) {
       "Content-Type": "application/json; charset=UTF-8",
     },
   };
-  {
-    return fetch("http://localhost:3000/students", options).then((res) =>
+  try {
+    return await fetch("http://localhost:3000/students", options).then((res) =>
       res.json()
     );
+      } catch (error) {
+    console.log(error);
   }
+  
+  
 }

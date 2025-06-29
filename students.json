@@ -63,20 +63,6 @@
       ],
       "email": "mykola.bondarenko@example.com",
       "isEnrolled": true
-    },
-    {
-      "id": "4c4b",
-      "name": "Ostap",
-      "age": "15",
-      "course": "GoIteens",
-      "skills": [
-        "html",
-        "css",
-        "js",
-        "json"
-      ],
-      "email": "ostap.drymalyk@gmail.com",
-      "isEnrolled": true
     }
   ]
 }
