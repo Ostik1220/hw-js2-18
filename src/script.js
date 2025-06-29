@@ -88,6 +88,7 @@ document.querySelector("tbody").addEventListener("click", async (e) => {
     console.log(item.id);
     try{
     await deleteStudent(item.id);
+    await getStudents();
     } catch (error){
       console.log(error)
     }
