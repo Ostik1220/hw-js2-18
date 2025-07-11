@@ -1,7 +1,7 @@
-import { getStudents } from "./operations/getStudentsObject";
-import { updateStudent } from "./operations/updateStudent";
-import { addStudent } from "./operations/addStudent";
-import { deleteStudent } from "./operations/deleteStudents";
+import { addStudent } from "./ApiOperations/addStudent";
+import { deleteStudent } from "./ApiOperations/deleteStudents";
+import { getStudents } from "./apiOperations/getStudentsObject";
+import { updateStudent } from "./ApiOperations/updateStudent";
 
 document.querySelector("#get-students-btn").addEventListener("click", async () => {
 return await getStudents(); 
@@ -12,7 +12,7 @@ return await getStudents();
 const form =  document.querySelector("#add-student-form")
  
 const collectInfo = (form) => {
-form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
   e.preventDefault()
       const name = e.target.elements.nameCollect.value;
       const age = e.target.elements.ageCollect.value;
@@ -34,9 +34,14 @@ form.addEventListener("submit", (e) => {
         email : email,
         isEnrolled : isEnrolled
   }
-  return addStudent(student)
+  try{
+  await addStudent(student)
+  } catch (error) {
+        console.error(error);
+      }
+
  })
-}
+  }
 
  console.log(collectInfo(form))
 
