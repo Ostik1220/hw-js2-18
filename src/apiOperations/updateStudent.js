@@ -1,6 +1,6 @@
 export const updateStudent = async (id, student) => {
   const options = {
-    method: "PATCH",
+    method: "PUT",
 
     body: JSON.stringify(student),
 
@@ -10,7 +10,7 @@ export const updateStudent = async (id, student) => {
   };
     try {
     return await fetch(
-      `http://localhost:3000/students/${id}`,
+      `https://687bab4eb4bc7cfbda86bede.mockapi.io/students/${id}`,
       options
     ).then((response) => response.json());
     } catch (error) {

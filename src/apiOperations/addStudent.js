@@ -7,7 +7,7 @@ export const addStudent = async (obj) => {
     },
   };
   try {
-    return await fetch("http://localhost:3000/students", options).then((res) =>
+    return await fetch("https://687bab4eb4bc7cfbda86bede.mockapi.io/students", options).then((res) =>
       res.json()
     );
       } catch (error) {

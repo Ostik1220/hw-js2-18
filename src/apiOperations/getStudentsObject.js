@@ -1,5 +1,5 @@
 export const getStudents = async() => {
- try{ return await fetch("http://localhost:3000/students")
+ try{ return await fetch("https://687bab4eb4bc7cfbda86bede.mockapi.io/students")
     .then((res) => res.json())
     .then((data) => {
       const tableBody = document.querySelector("tbody");
