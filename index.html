@@ -1,4 +1,17 @@
-<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><title>CRUD Students</title><link rel=stylesheet href=/hw-js2-18/hw-js2-18.45db38b6.css><body>
+<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><title>CRUD Students</title><link rel=stylesheet href=/hw-js2-18/hw-js2-18.4b63f371.css><body>
+    <div class=backdrop>
+      <div class=modal>
+        <h2 class=title>Змінити студента</h2>
+      <form id=update-student-form>
+        <label>Ім'я: <input name=nameCollect id=name required></label>
+        <label>Вік: <input type=number name=ageCollect id=age required></label>
+        <label>Курс: <input name=courseCollect id=course required></label>
+        <label>Навички (через кому): <input name=skillsCollect id=skills required></label>
+        <label>Email: <input type=email name=emailCollect id=email required></label>
+        <label>Записаний: <input type=checkbox name=isEnrolledCollect id=isEnrolled></label>
+        <button class=change>Змінити</button>
+      </form></div>
+    </div>
     <div class=container>
       <h1>Список студентів</h1>
       <button id=get-students-btn>Отримати студентів</button>
@@ -20,18 +33,19 @@
           
         </tbody>
       </table>
-      <h2>Додати нового студента</h2>
+      <h2 class=title>Додати нового студента</h2>
       <form id=add-student-form>
-        <label>Ім'я: <input id=name required></label>
-        <label>Вік: <input type=number id=age required></label>
-        <label>Курс: <input id=course required></label>
-        <label>Навички (через кому): <input id=skills required></label>
-        <label>Email: <input type=email id=email required></label>
-        <label>Записаний: <input type=checkbox id=isEnrolled></label>
+        <label>Ім'я: <input name=nameCollect id=name required></label>
+        <label>Вік: <input type=number name=ageCollect id=age required></label>
+        <label>Курс: <input name=courseCollect id=course required></label>
+        <label>Навички (через кому): <input name=skillsCollect id=skills required></label>
+        <label>Email: <input type=email name=emailCollect id=email required></label>
+        <label>Записаний: <input type=checkbox name=isEnrolledCollect id=isEnrolled></label>
         <button>Додати студента</button>
       </form>
     </div>
+    
 
-    <script src=/hw-js2-18/hw-js2-18.e6e45566.js></script>
+    <script src=/hw-js2-18/hw-js2-18.177e932a.js type=module></script>
   
 
