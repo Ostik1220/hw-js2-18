@@ -1,6 +1,6 @@
 import { addStudent } from "./ApiOperations/addStudent";
 import { deleteStudent } from "./ApiOperations/deleteStudents";
-import { getStudents } from "./apiOperations/getStudentsObject";
+import { getStudents } from "./ApiOperations/getStudentsObject";
 import { updateStudent } from "./ApiOperations/updateStudent";
 
 document.querySelector("#get-students-btn").addEventListener("click", async () => {
